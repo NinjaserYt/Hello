@@ -1,0 +1,73 @@
+<style> @keyframes backgroundAnimation {
+    0% {
+        background-color: #ff0000;
+    }
+    50% {
+        background-color: #00ff00;
+    }
+    100% {
+        background-color: #0000ff;
+    }
+}
+
+body {
+    animation-name: backgroundAnimation;
+    animation-duration: 3s;
+    animation-timing-function: circle;
+    animation-iteration-count: infinite;
+} </style>
+
+<html>
+<head>
+    <title>Hello World</title>
+    <style>
+        /* CSS code for initial style of the heading */
+        .helloWorld {
+            position: absolute;
+            font-size: 36px;
+            color: #ff0000;
+            font-family: Arial, sans-serif;
+            opacity: 1;
+        }
+    </style>
+    <script>
+        // JavaScript code for cloning and animating the heading
+        function createHelloWorld() {
+            var heading = document.createElement("h1");
+            heading.className = "helloWorld";
+            heading.textContent = "Hello World!";
+            document.body.appendChild(heading);
+
+            var fonts = ["Arial", "Helvetica", "Verdana", "Georgia", "Times New Roman", "Comic Sans MS", "Courier New", "Lucida Console", "Impact", "Trebuchet MS", "Monaco", "Cursive", "Brush Script MT", "Garamond", "Palatino Linotype", "Consolas", "Futura", "Bodoni MT"];
+            var colors = ["#ff0000", "#00ff00", "#0000ff", "#ff00ff", "#ffff00"];
+            var fontSizes = ["24px", "36px", "48px", "60px", "72px"];
+
+            var x = Math.random() * (window.innerWidth - heading.offsetWidth);
+            var y = Math.random() * (window.innerHeight - heading.offsetHeight);
+            heading.style.left = x + "px";
+            heading.style.top = y + "px";
+
+            var randomFontIndex = Math.floor(Math.random() * fonts.length);
+            var randomColorIndex = Math.floor(Math.random() * colors.length);
+            var randomFontSizeIndex = Math.floor(Math.random() * fontSizes.length);
+
+            heading.style.fontFamily = fonts[randomFontIndex];
+            heading.style.color = colors[randomColorIndex];
+            heading.style.fontSize = fontSizes[randomFontSizeIndex];
+
+            setTimeout(function() {
+                heading.style.opacity = "0";
+                setTimeout(function() {
+                    document.body.removeChild(heading);
+                }, 1000);
+            }, 2000);
+        }
+
+        // Call the createHelloWorld() function every 2 seconds (2000 milliseconds) to create multiple Hello World text elements
+        setInterval(createHelloWorld, 2000);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
